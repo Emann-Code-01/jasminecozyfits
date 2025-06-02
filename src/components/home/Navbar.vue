@@ -1,5 +1,5 @@
 <script setup>
-import HeaderPic from "../assets/logo.png";
+import HeaderPic from "../../assets/logo.png";
 </script>
 
 <template>

@@ -1,12 +1,9 @@
 <script setup>
-  import Navbar from '../components/Navbar.vue';
+  import Navbar from './components/home/Navbar.vue';
 </script>
 <template>
   <div id="app">
     <Navbar />
-    <main>
-      <router-view />
-    </main>
   </div>
 </template>
 
@@ -24,3 +21,6 @@
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
+
+
+
