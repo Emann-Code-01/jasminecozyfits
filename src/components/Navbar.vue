@@ -1,68 +1,72 @@
-<script setup>
-import HeaderPic from "../assets/logo.png";
-</script>
-
 <template>
-  <div class="navbar">
-    <div class="left-side">
-      <nav>
-        <a href="/"> <img :src="HeaderPic" alt="Logo" class="logo" /></a>
-        <ul>
-          <li><a href="/everything">everything</a></li>
-          <li><a href="/gym-wear">gym-wears</a></li>
-          <li><a href="/accessories">accessories</a></li>
-          <li><a href="/night-wears">night-wears</a></li>
-        </ul>
-      </nav>
+  <nav :class="navbarClass">
+    <div class="mx-auto max-w-8xl text-nowrap pt-0.5 pb-5 sm:px-6 md:px-8 bg-[#00000012]">
+      <div class="flex justify-between items-center uppercase mt-4" id="nav">
+        <nav class="flex items-center text-sm font-bold">
+          <router-link to="/" :class="[
+            route.path === '/' ? 'invert brightness-200' : '',
+            'outline-none ring-0 focus:outline-none focus:ring-0']">
+            <img :src="HeaderPic" alt="Logo" class="w-37 h-17 border-0 outline-none ring-0 shadow-none" />
+          </router-link>
+
+          <ul class="flex gap-6 pl-9 list-none">
+            <li><router-link to="/everything"
+                :class="[isActiveLink('/everything') ? 'text-black' : ' hover:text-pink-500']">everything</router-link>
+            </li>
+            <li><router-link to="/gym-wear"
+                :class="[isActiveLink('/gym-wear') ? 'text-black' : ' hover:text-pink-500']">gym-wears</router-link>
+            </li>
+            <li><router-link to="/accessories"
+                :class="[isActiveLink('/accessories') ? 'text-black' : ' hover:text-pink-500']">accessories</router-link>
+            </li>
+            <li><router-link to="/night-wear"
+                :class="[isActiveLink('/night-wear') ? 'text-black' : ' hover:text-pink-500']">night-wears</router-link>
+            </li>
+          </ul>
+        </nav>
+        <nav class="flex items-center text-[13px] mr-5">
+          <ul class="flex gap-8 list-none">
+            <li class="text-[13px]"><router-link to="/contact">contact us</router-link></li>
+            <div class="cart"><i class="fa fa-shopping-bag"></i>
+              <span class="absolute bg-white text-black font-bold -mt-1 text-xs rounded-full px-1.5 -mr-1.5">
+                {{ cart.cartItemCount }}
+              </span>
+            </div>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <div class="right-side">
-      <nav>
-        <ul>
-          <li><a href="/login">about</a></li>
-          <li><a href="/register">contact us</a></li>
-          <div class="cart"></div>
-          <div class="profile"></div>
-        </ul>
-      </nav>
-    </div>
-  </div>
+  </nav>
 </template>
 
+<script setup>
+import HeaderPic from "../assets/jasmine180x60.png";
+import { computed } from 'vue';
+import { useRoute } from 'vue-router'
+import { useCartStore } from '../stores/CartStores'
+
+const route = useRoute()
+
+const cart = useCartStore()
+
+const navbarClass = computed(() =>
+  route.path === '/'
+    ? 'absolute top-0 left-0 w-full z-30 bg-transparent text-white'
+    : route.path === '/about'
+      ? 'absolute top-0 left-0 w-full z-30 bg-transparent text-white'
+      : 'fixed top-0 left-0 w-full z-50 bg-white shadow-md text-black'
+)
+
+
+const isActiveLink = (routePath) => {
+  const route = useRoute();
+  return route.path === routePath;
+};
+</script>
+
+
 <style scoped>
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em;
-  background-color: transparent;
-  text-transform: uppercase;
-}
-
-.left-side nav,
-.right-side nav {
-  display: flex;
-  align-items: center;
-}
-
-.left-side ul,
-.right-side ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5em;
-  margin: 0;
-  padding: 0;
-}
-
-.left-side ul li,
-.right-side ul li {
-  font-size: 1.2em;
-}
-
-.left-side ul li a,
-.right-side ul li a {
-  text-decoration: none;
-  color: #333;
-  transition: color 0.3s ease;
-  font-weight: 600;
+#nav {
+  @apply transition-colors delay-300
 }
 </style>

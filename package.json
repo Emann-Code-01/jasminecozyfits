@@ -9,14 +9,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.8",
-    "vue": "^3.5.13"
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@splidejs/splide": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.10",
+    "git-filter-repo": "^0.0.30",
+    "pinia": "^3.0.3",
+    "primeicons": "^7.0.0",
+    "swiper": "^11.2.10",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "vueperslides": "^3.6.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.4",
-    "tailwindcss": "^4.1.8",
+    "tailwindcss": "^4.1.10",
     "vite": "^6.3.5"
   }
 }
