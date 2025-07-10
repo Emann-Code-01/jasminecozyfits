@@ -11,22 +11,22 @@
 
           <ul class="flex gap-6 pl-9 list-none">
             <li><router-link to="/everything"
-                :class="[isActiveLink('/everything') ? 'text-black' : ' hover:text-pink-500']">everything</router-link>
+                :class="[isActiveLink('/everything') ? 'text-black' : ' hover:text-pink-300']">everything</router-link>
             </li>
             <li><router-link to="/gym-wear"
-                :class="[isActiveLink('/gym-wear') ? 'text-black' : ' hover:text-pink-500']">gym-wears</router-link>
+                :class="[isActiveLink('/gym-wear') ? 'text-black' : ' hover:text-pink-300']">gym-wears</router-link>
             </li>
             <li><router-link to="/accessories"
-                :class="[isActiveLink('/accessories') ? 'text-black' : ' hover:text-pink-500']">accessories</router-link>
+                :class="[isActiveLink('/accessories') ? 'text-black' : ' hover:text-pink-300']">accessories</router-link>
             </li>
             <li><router-link to="/night-wear"
-                :class="[isActiveLink('/night-wear') ? 'text-black' : ' hover:text-pink-500']">night-wears</router-link>
+                :class="[isActiveLink('/night-wear') ? 'text-black' : ' hover:text-pink-300']">night-wears</router-link>
             </li>
           </ul>
         </nav>
         <nav class="flex items-center text-[13px] mr-5">
           <ul class="flex gap-8 list-none">
-            <li class="text-[13px]"><router-link to="/contact">contact us</router-link></li>
+            <li class="text-[13px]"><router-link to="/contact" :class="[isActiveLink('/everything') ? 'text-black' : ' hover:text-pink-300']">contact us</router-link></li>
             <div class="cart"><i class="fa fa-shopping-bag"></i>
               <span class="absolute bg-white text-black font-bold -mt-1 text-xs rounded-full px-1.5 -mr-1.5">
                 {{ cart.cartItemCount }}
