@@ -9,7 +9,7 @@
             <img :src="HeaderPic" alt="Logo" class="w-37 h-17 border-0 outline-none ring-0 shadow-none" />
           </router-link>
 
-          <ul class="flex gap-6 pl-9 list-none">
+          <ul class="flex gap-6 pl-9 list-none md:gap-3">
             <li><router-link to="/everything"
                 :class="[isActiveLink('/everything') ? 'text-black' : ' hover:text-pink-300']">everything</router-link>
             </li>
@@ -26,7 +26,9 @@
         </nav>
         <nav class="flex items-center text-[13px] mr-5">
           <ul class="flex gap-8 list-none">
-            <li class="text-[13px]"><router-link to="/contact" :class="[isActiveLink('/everything') ? 'text-black' : ' hover:text-pink-300']">contact us</router-link></li>
+            <li class="text-[13px]"><router-link to="/contact"
+                :class="[isActiveLink('/everything') ? 'text-black' : ' hover:text-pink-300']">contact us</router-link>
+            </li>
             <div class="cart"><i class="fa fa-shopping-bag"></i>
               <span class="absolute bg-white text-black font-bold -mt-1 text-xs rounded-full px-1.5 -mr-1.5">
                 {{ cart.cartItemCount }}
